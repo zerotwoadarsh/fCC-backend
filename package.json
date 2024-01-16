@@ -1,0 +1,18 @@
+{
+  "name": "fcc-backend",
+  "version": "1.0.0",
+  "description": "learning backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm index.js"
+  },
+  "keywords": [
+    "node",
+    "backend"
+  ],
+  "author": "Adarsh Kushwaha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
