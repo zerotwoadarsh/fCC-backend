@@ -8,6 +8,7 @@ app.listen(3000);
 let users=[];
 
 const userRouter = express.Router();
+const authRouter = express.Router()
 app.use('/user')
 
 userRouter
