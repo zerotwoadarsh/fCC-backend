@@ -9,7 +9,8 @@ let users=[];
 
 const userRouter = express.Router();
 const authRouter = express.Router()
-app.use('/user')
+app.use('/user', userRouter)
+app.use('/user', authRouter)
 
 userRouter
 .route('/')
@@ -18,14 +19,12 @@ userRouter
 .patch(updateUser)
 .delete(deleteUser)
 
-.userRouter
-.route('/:id')
+userRouter.route('/:id').get(getUserById);
 
-// app.get('/user')
-app.post('/user')
-app.patch('/user')
-app.delete('/user')
-app.get(getUserById)
+authRouter
+.route('/signup')
+.get(getSignUp)
+.post(postSignUp);
 
 function getUser(req,res){
     res.send(users);
@@ -71,4 +70,16 @@ function getUserById(req,res){
         message : "req received",
         data : obj
     });
+}
+
+function getSignUp(req,res){
+    res.sendFile('/public/index.html', {root: __dirname});
+}
+
+function postSignUp(req, resp){
+    let obj = req.body;
+    res.json({
+        message : 'user signed up',
+        data : obj
+    })
 }
